@@ -3,14 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication2.Util;
 
 namespace WebApplication2.Controllers
 {
     public class HomeController : Controller
-    {
-        public ActionResult Index()
+    { public ActionResult Index()
         {
             return View();
+        }
+        public ActionResult GetImage()
+{
+    string path = "../Content/Images/maxresdefault.jpg";
+    return new ImageResult(path);
+}
+        public ActionResult GetHtml()
+        {
+            return new HtmlResult("<h2>Привет мир</h2>");
+        }
+        public void GetVoid()
+        {
+
         }
         [HttpGet]
         public ActionResult GetBook()
